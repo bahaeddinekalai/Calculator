@@ -1,0 +1,116 @@
+/* 
+#F5F3C1 
+#27E1C1 
+#0EA293
+#2F0F5D
+*/
+
+body {
+  background-color: #e1e1e1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+}
+h1 {
+  font-size: 52px;
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+}
+.header {
+  background-color: #27e1c1;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calc-container {
+  background-color: #27e1c1;
+  align-self: center;
+  margin: 50px;
+  padding: 15px;
+  height: 75vh;
+  width: 25%;
+  box-shadow: 20px 20px 0 #0ea293;
+  border-radius: 10px;
+  border: 3px solid #2f0f5d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.LED {
+  background-color: #e8e8e8;
+  width: 100%;
+  border-radius: 5px;
+  flex: 2;
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  border: 2px solid black;
+  box-shadow: 6px 6px 0 #0ea293;
+}
+.buttons {
+  flex: 7;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.operation{
+    margin: 0px 20px ;
+}
+.action-buttons {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.action-buttons div {
+  height: 70%;
+  width: 46%;
+  align-self: center;
+  border-radius: 5px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ddd;
+  font-weight: bold;
+  font-size: 24px;
+  box-shadow: 5px 5px 0 #0ea293;
+}
+.clear {
+  background-color: rgba(255, 83, 83, 0.913);
+}
+.delete {
+  background-color: rgba(48, 15, 93, 0.829);
+}
+.main-buttons {
+  width: 100%;
+  flex: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.row {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.column {
+  background-color: #ddd;
+    height: 20%;
+  border: 2px solid #000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 5px 5px 0 #0ea293;
+}
