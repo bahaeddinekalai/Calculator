@@ -114,3 +114,17 @@ h1 {
   font-weight: bold;
   box-shadow: 5px 5px 0 #0ea293;
 }
+
+.column:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.clear:hover {
+  background-color: rgba(249, 61, 61, 0.952);
+  cursor: pointer;
+}
+.delete:hover {
+  background-color: rgba(48, 15, 93, 0.97);
+  cursor: pointer;
+}

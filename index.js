@@ -16,25 +16,32 @@ function divide(a, b) {
 
 let firstNumber = 0;
 let secondeNumber = 0;
-let operator = "+";
+let operator = "";
 
 function operate(operator, firstNumber, secondeNumber) {
   switch (operator) {
     case "+":
-      add(firstNumber, secondeNumber);
-      break;
+      return add(firstNumber, secondeNumber);
+
     case "-":
-      subtract(firstNumber, secondeNumber);
-      break;
-    case "*":
-      multiply(firstNumber, secondeNumber);
-      break;
-    case "/":
-      divide(firstNumber, secondeNumber);
-      break;
+      return subtract(firstNumber, secondeNumber);
+
+    case "×":
+      return multiply(firstNumber, secondeNumber);
+
+    case "÷":
+      if (secondeNumber === 0) {
+        return "Error";
+      } else if (secondeNumber === 0) {
+        if (Number.isInteger(divide(firstNumber, secondeNumber))) {
+          return divide(firstNumber, secondeNumber).toString();
+        }
+      }else{
+        return divide(firstNumber, secondeNumber).toFixed(2);
+      }
+
     default:
-      add(firstNumber, secondeNumber);
-      break;
+      return "Error";
   }
 }
 
@@ -57,3 +64,62 @@ const content = [7, 4, 1, ".", 8, 5, 2, 0, 9, 6, 3, "=", "÷", "×", "-", "+"];
 for (let i = 0; i < cells.length; i++) {
   cells[i].innerHTML = `${content[i]}`;
 }
+
+let display = document.querySelector(".operation");
+function displayNumber(value) {
+  display.innerHTML += value;
+}
+let clear = document.querySelector(".clear");
+clear.addEventListener("click", function () {
+  display.innerHTML = "";
+  firstNumber = 0;
+  secondeNumber = 0;
+  operator = "";
+  resultEqual = true;
+});
+let deleteButton = document.querySelector(".delete");
+deleteButton.addEventListener("click", function () {
+  display.innerHTML = display.innerHTML.slice(0, -1);
+});
+let resultEqual = true;
+let buttons = document.querySelectorAll(".column");
+let isFirstNumber = true;
+let hasOperator = false;
+
+buttons.forEach((button) => {
+  button.addEventListener("click", function () {
+    if ("0123456789.".includes(this.innerText)) {
+      if ("+-×÷".includes(display.innerHTML) || operator != "") {
+        display.innerHTML = "";
+      }
+      if (this.innerText == "." && display.innerHTML.includes(".")) {
+        return;
+      }
+      displayNumber(this.innerText);
+    } else if ("+-×÷".includes(this.innerText)) {
+      if (!hasOperator) {
+        isFirstNumber = false;
+        hasOperator = true;
+        firstNumber = display.innerText;
+      }
+      operator = this.innerText;
+      display.innerHTML = this.innerText;
+    } else if (this.innerHTML === "=") {
+      if (hasOperator) {
+        secondeNumber = display.innerHTML;
+        if (operator === "÷" && secondeNumber === "0") {
+          display.innerHTML = "Error";
+        } else {
+          display.innerHTML = operate(
+            operator,
+            parseFloat(firstNumber),
+            parseFloat(secondeNumber)
+          );
+        }
+      }
+      isFirstNumber = true;
+      hasOperator = false;
+      operator = "";
+    }
+  });
+});
